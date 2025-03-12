@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: breathing-glow 3s ease-in-out infinite;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.links a {
+    color: white; /* Button text is white initially */
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 5px #ffffff;
+}
+
+.links a:hover {
+    color: #a9a9a9; /* Light grey on hover */
+    text-shadow: 0 0 20px #ffffff; /* Glow remains white */
+}
+
+/* Breathing glow effect for sanelka */
+@keyframes breathing-glow {
+    0% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    }
+    50% {
+        text-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 60px #ffffff;
+    }
+    100% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    }
+}
+
+/* Style for animated "powered by sanelka ❤" text */
+#powered-text {
+    font-size: 1rem;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Particle background */
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(calc(-50% + 50vw));
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) translateX(calc(-50% + 50vw));
+        opacity: 0;
+    }
+}
